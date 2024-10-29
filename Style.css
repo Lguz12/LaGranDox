@@ -1,0 +1,301 @@
+@font-face {
+    font-family: Forum;
+    src: url(assets\Roboto\Roboto-Black.ttf);
+}
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --fuente-Mate: Forum;
+    --fuente-New: Tangerine;
+}
+
+.LGDBrand {
+    font-family: var(--fuente-New);
+    font-size: 24px;
+}
+
+.Logo {
+    translate: 0px 10px;
+    width: 70px;
+    height: 60px;
+    transition: .5s, color .10s;
+    -webkit-transition: .5s, color .10s;
+    -moz-transition: .5s, color .10s;
+
+}
+
+@media (min-width: 650px) {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .Logo {
+        width: 120px;
+        height: 100px;
+    }
+
+    .LGDBrand {
+        font-size: 42px;
+    }
+}
+
+.Logo:hover {
+    translate: 5px 50px;
+    transform: scale3d(1.2, 1.2, 0.2);
+    -webkit-transform: scale3d(1.3, 1.3, 0.3);
+    -moz-transform: scale3d(1.3, 1.3, 0.3);
+}
+
+.navbar {
+    width: 100%;
+    z-index: 1000px !important;
+    position: relative;
+    background-color: snow;
+}
+
+.navbar li {
+    margin-inline: 20px;
+}
+
+.menu-vertical {
+    position: fixed;
+    top: 116px;
+    left: -100%;
+    /* Ocultado fuera de la pantalla */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: left 0.3s ease;
+    /* Transición suave */
+    z-index: 500;
+}
+
+.menu-vertical ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.menu-vertical ul li {
+    margin: 20px 0;
+}
+
+.menu-vertical ul li a {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+}
+
+/* Estilo cuando el menú está activo (se mostrará) */
+.menu-vertical.active {
+    left: 0;
+}
+
+
+
+/* From Uiverse.io by xueyuantan */
+.buttonNav {
+    width: 9em;
+    height: 3em;
+    border-radius: 30em;
+    font-size: 15px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 6px 6px 12px #c5c5c5,
+        -6px -6px 12px #ffffff;
+}
+
+.buttonNav::before {
+    content: '';
+    width: 0;
+    height: 3em;
+    border-radius: 30em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}
+
+.buttonNav:hover::before {
+    width: 9em;
+}
+
+.Imgcarousel {
+    height: 692px;
+    width: 100%;
+}
+
+.btnNav:hover {
+    border: 3px solid purple;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+
+h2 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.sedes-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.sede {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.sede img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sede .overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+}
+
+.sede .overlay h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.sede .overlay p {
+    margin: 5px 0 0;
+    font-size: 1em;
+}
+
+
+@property --num {
+    syntax: '<integer>';
+    inherits: true;
+    initial-value: 0;
+}
+
+@property --num2 {
+    syntax: '<integer>';
+    inherits: true;
+    initial-value: 0;
+}
+
+@property --num3 {
+    syntax: '<integer>';
+    inherits: true;
+    initial-value: 0;
+}
+
+.stats1::before {
+    counter-reset: my-counter var(--num2);
+    content: counter(my-counter);
+    animation: count 10s forwards;
+}
+
+.stats2::before {
+    counter-reset: my-counter var(--num);
+    content: counter(my-counter);
+    animation: count 10s forwards;
+}
+
+.stats3::before {
+    counter-reset: my-counter var(--num3);
+    content: counter(my-counter);
+    animation: count 10s forwards;
+}
+
+@keyframes count {
+    to {
+        --num: 50;
+    }
+
+    to {
+        --num2: 1500;
+    }
+
+    to {
+        --num3: 43;
+    }
+}
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* carrusel logos infinitos */
+@keyframes slides {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.logos {
+    overflow: hidden;
+    padding: 30px 0px;
+    white-space: nowrap;
+    position: relative;
+}
+
+.logos:before,
+.logos:after {
+    position: absolute;
+    top: 0;
+    content: '';
+    width: 250px;
+    height: 100%;
+    z-index: 2;
+}
+
+.logos:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), rgb(255, 255, 255));
+}
+
+.logos:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255));
+}
+
+.logo_items {
+    display: inline-block;
+    animation:100s slides infinite linear;
+}
+
+.logos:hover .logo_items {
+    animation-play-state: paused;
+}
+
+.logo_items img {
+    height: 100px;
+}
